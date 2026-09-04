@@ -6,4 +6,4 @@
   Cross-Origin-Embedder-Policy: credentialless
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: interest-cohort=()
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-Oa4LLLjfkRxs8HWx3FbdnEvwonucXULryrf+sQndkR4='; connect-src 'self'; font-src 'self'; media-src 'self'
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-tHRwOZpV8GP+JDoDZs16Gw09ImnQ44D4hYupmnkqWes='; connect-src 'self'; font-src 'self'; media-src 'self' data:
