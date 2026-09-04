@@ -1,6 +1,6 @@
-# portfolio-2026 — Jian Sorge
+# portfolio-2026 · Jian Sorge
 
-Live: **https://jiansorge.surge.sh** · Repo: this one
+Live: **https://jiansorge.surge.sh**
 
 Minimal, earth-inspired portfolio for a software engineer. No build, no framework, no trackers. Mostly light, natural colors, flowing gradients, built for 100/100/100/100 and real privacy.
 
