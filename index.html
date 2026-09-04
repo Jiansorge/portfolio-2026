@@ -15,7 +15,7 @@
 <meta property="og:description" content="Minimal, fast, secure work. Joining Palms and sync-engine.">
 <meta property="og:url" content="https://jiansorge.surge.sh">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-tHRwOZpV8GP+JDoDZs16Gw09ImnQ44D4hYupmnkqWes='; connect-src 'self'; font-src 'self'; media-src 'self' data:">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-Lw0Ant2AYlaKaNvmXAakN5mgMvmo9BtrcCkbuFUls7Q=' https://static.cloudflareinsights.com; connect-src 'self' https://static.cloudflareinsights.com; font-src 'self'; media-src 'self' data:">
 <link rel="canonical" href="https://jiansorge.surge.sh">
 <link rel="icon" href="assets/buddha.svg" type="image/svg+xml">
 <link rel="preload" as="image" href="assets/hero-mountains-600.webp" imagesrcset="assets/hero-mountains-400.webp 400w, assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" imagesizes="(max-width: 900px) 100vw, 460px" type="image/webp" fetchpriority="high">
@@ -42,7 +42,7 @@
     --font-sans: ui-sans-system, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   }
-  /* force light — natural, single theme for consistent contrast */
+  /* force light - natural, single theme for consistent contrast */
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
   html,body{margin:0;padding:0}
@@ -92,7 +92,7 @@
   .icon-btn:hover{color:var(--ink);border-color:var(--line-2)}
   .icon-btn svg{width:16px;height:16px;display:block}
 
-  /* hero · generous breathing room, works at narrow widths — flowing */
+  /* hero · generous breathing room, works at narrow widths - flowing */
   .hero{padding:28px 18px 28px;position:relative;overflow:hidden}
   @media(min-width:375px){.hero{padding:32px 20px 32px}}
   @media(min-width:600px){.hero{padding:48px 24px 40px}}
@@ -138,7 +138,7 @@
   .art-caption{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;padding:12px 14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:650;border-top:1px solid var(--line);background:color-mix(in srgb, var(--paper) 78%, transparent);backdrop-filter:blur(6px)}
   .art-caption span:last-child{color:var(--muted-2);font-weight:500;letter-spacing:0.04em;text-transform:none}
 
-  /* sections common — content-visibility for perf + subtle accent */
+  /* sections common - content-visibility for perf + subtle accent */
   section{padding:56px 0 0; content-visibility:auto; contain-intrinsic-size:0 900px; position:relative}
   section::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, #dbeafe 0%, #dcfce7 50%, transparent 85%);opacity:0.7;pointer-events:none}
   #work{contain-intrinsic-size:0 1200px}
@@ -194,7 +194,7 @@
   .principle b{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:6px}
   .principle span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
 
-  /* contact — lighter, flowing, not heavy */
+  /* contact - lighter, flowing, not heavy */
   .contact{border:1px solid var(--line);border-radius:var(--radius);background:
       radial-gradient(600px 300px at 85% 0%, #eaf1ff 0%, transparent 60%),
       radial-gradient(500px 300px at 10% 100%, #fff6d6 0%, transparent 60%),
@@ -261,10 +261,10 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
-      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer" aria-label="GitHub profile — Jian Sorge">
+      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer" aria-label="GitHub profile - Jian Sorge">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.09.64-.2.64-.45v-1.6c-2.6.57-3.16-1.1-3.16-1.1-.43-1.1-1.06-1.4-1.06-1.4-.87-.6.07-.6.07-.6 1 .07 1.5 1 1.5 1 .86 1.48 2.25 1.05 2.8.8.08-.6.33-1.05.6-1.3-2.1-.24-4.3-1.05-4.3-4.7 0-1.05.38-1.9 1-2.57-.1-.24-.44-1.2.1-2.5 0 0 .82-.26 2.7 1 .78-.22 1.6-.33 2.43-.33.82 0 1.65.11 2.43.33 1.88-1.26 2.7-1 2.7-1 .54 1.3.2 2.26.1 2.5.62.67 1 1.52 1 2.57 0 3.66-2.22 4.45-4.33 4.69.34.3.65.9.65 1.8v2.67c0 .25.17.55.64.45A9.5 9.5 0 0 0 12 2.5Z"/></svg>
       </a>
-      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer" aria-label="LinkedIn profile — Jian Sorge">
+      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer" aria-label="LinkedIn profile - Jian Sorge">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.6c0-1.34-.48-2.26-1.67-2.26-1 0-1.6.67-1.86 1.32-.1.23-.12.55-.12.88v5.66H9.68s.05-9.19 0-10.14h3.56v1.44c.48-.73 1.33-1.77 3.23-1.77 2.36 0 4 1.54 4 4.85v5.62ZM5.34 7.43a2 2 0 1 1 0-3.98 2 2 0 0 1 0 3.98ZM7.12 20.45H3.56V10.3h3.56Z"/></svg>
       </a>
     </div>
@@ -286,8 +286,8 @@
         <p class="lede">I’m <strong>Jian Sorge</strong>, a software engineer with 5+ years in front end and 7 years prior as an aerospace project engineer. I build <strong>holistic, reliable products</strong> that are fast, secure, accessible, and cost efficient, and feel minimal and human. My recent work is <strong>Joining Palms</strong>, a living 3D Earth where the world prays together, and its real time layer <strong>sync-engine</strong>, a durable edge sync fabric that runs for ~$0. Both are open source and built openly with AI as a collaborator.</p>
         <div class="actions">
           <a class="btn btn-primary" href="#work">View work →</a>
-          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer" aria-label="GitHub profile — Jian Sorge">GitHub</a>
-          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer" aria-label="LinkedIn profile — Jian Sorge">LinkedIn</a>
+          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer" aria-label="GitHub profile - Jian Sorge">GitHub</a>
+          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer" aria-label="LinkedIn profile - Jian Sorge">LinkedIn</a>
         </div>
         <div class="meta-row" aria-label="Highlights">
           <span>◍ Secure by default</span><span class="dot"></span><span>◍ Accessible</span><span class="dot"></span><span>◍ Reliable & cost efficient</span><span class="dot"></span><span>◍ Performant</span><span class="dot"></span><span>◍ Inclusive & trustworthy</span>
@@ -298,10 +298,10 @@
           <picture>
             <source type="image/avif" srcset="assets/hero-mountains-400.avif 400w, assets/hero-mountains-480.avif 480w, assets/hero-mountains-600.avif 600w, assets/hero-mountains-800.avif 800w" sizes="(max-width: 900px) 100vw, 460px">
             <source type="image/webp" srcset="assets/hero-mountains-400.webp 400w, assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" sizes="(max-width: 900px) 100vw, 460px">
-            <img src="assets/hero-mountains.jpg" alt="Bright flower-covered mountain cliffs overlooking turquoise ocean cove, Big Sur light, natural earth beauty" width="800" height="533" decoding="async" fetchpriority="high" loading="eager">
+            <img src="assets/hero-mountains.jpg" alt="Bright wildflower meadow under blue sky, natural earth beauty" width="800" height="533" decoding="async" fetchpriority="high" loading="eager">
           </picture>
         </div>
-        <div class="art-caption"><span>Flower cliffs overlooking ocean · Big Sur light</span><span>33KB webp · bright & inspiring</span></div>
+        <div class="art-caption"><span>Wildflower meadow · blue sky</span><span>14KB webp</span></div>
       </div>
     </div>
   </div>
@@ -372,7 +372,7 @@
               <text x="471" y="168" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#1e3a2f">COORDINATOR</text>
               <text x="471" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#7a7a6e">aggregates /stats</text>
               <path d="M396 172 L400 172" stroke="#1e3a2f" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
-              <!-- Stats arrow out — single triangle, no marker artifact -->
+              <!-- Stats arrow out - single triangle, no marker artifact -->
               <path d="M378 220 L420 220 L420 250 L442 250" stroke="#6b8e7e" stroke-width="1.4" stroke-dasharray="5 4" fill="none"/>
               <path d="M442 246 L452 250 L442 254 z" fill="#6b8e7e"/>
               <text x="430" y="268" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#6b8e7e">GET /stats</text>
@@ -439,7 +439,7 @@
     <div class="contact">
       <div>
         <h3>Let's build something meaningful together.</h3>
-        <p>I’m energized by teams who care about craft, kindness, and real world impact. If you are creating thoughtful, human centered products and could use a front-end leaning engineer who ships reliable, accessible work — I would love to collaborate.</p>
+        <p>I’m energized by teams who care about craft, kindness, and real world impact. If you are creating thoughtful, human centered products and could use a front-end leaning engineer who ships reliable, accessible work - I would love to collaborate.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start">
         <a class="btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer">Message on LinkedIn →</a>
@@ -455,8 +455,8 @@
         <span class="mono">Built to be 100/100/100/100 · Secure and lightweight · System fonts · Bot honeypot and link obfuscation active</span>
       </div>
       <div style="display:flex;gap:14px;flex-wrap:wrap">
-        <a href="https://github.com/jiansorge" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile — Jian Sorge">GitHub</a>
-        <a href="https://linkedin.com/in/jiansorge" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile — Jian Sorge">LinkedIn</a>
+        <a href="https://github.com/jiansorge" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile - Jian Sorge">GitHub</a>
+        <a href="https://linkedin.com/in/jiansorge" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile - Jian Sorge">LinkedIn</a>
         <a href="https://joining-palms.app" target="_blank" rel="noopener noreferrer">joining-palms.app</a>
       </div>
     </div>

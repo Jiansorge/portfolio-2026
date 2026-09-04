@@ -6,4 +6,7 @@
   Cross-Origin-Embedder-Policy: credentialless
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: interest-cohort=()
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-tHRwOZpV8GP+JDoDZs16Gw09ImnQ44D4hYupmnkqWes='; connect-src 'self'; font-src 'self'; media-src 'self' data:
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-Lw0Ant2AYlaKaNvmXAakN5mgMvmo9BtrcCkbuFUls7Q=' https://static.cloudflareinsights.com; connect-src 'self' https://static.cloudflareinsights.com; font-src 'self'; media-src 'self' data:
+  Cache-Control: public, max-age=0, must-revalidate
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
