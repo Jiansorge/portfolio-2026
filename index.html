@@ -1,4 +1,5 @@
 <!doctype html>
+<!-- NOTE: Do not use em dashes. Use commas, periods, or "and" instead. Keep style consistent and avoid em dashes for accessibility. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -112,7 +113,7 @@
   .eyebrow i{width:7px;height:7px;border-radius:999px;background:#2e9e6b;flex:none;display:block;margin-top:5px;box-shadow:0 0 0 4px color-mix(in srgb, #2e9e6b 18%, transparent)}
   .eyebrow span{flex:1;min-width:0;text-wrap:balance}
   .nowrap{white-space:nowrap}
-  h1{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.04em;line-height:0.92;margin:0;padding:4px 0 2px;font-size:clamp(36px, 6vw, 64px);color:var(--ink)}
+  h1{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.04em;line-height:1.02;margin:0;padding:6px 0 4px;font-size:clamp(36px, 6vw, 64px);color:var(--ink)}
   h1 em{font-style:italic;font-weight:400;color:var(--moss)}
   .lede{font-size:clamp(16px,2.2vw,19px);line-height:1.65;color:var(--ink-2);max-width:56ch;margin:0;padding:4px 0}
   .lede strong{font-weight:700;color:var(--ink)}
@@ -130,21 +131,22 @@
   .art{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg, #eef4ef 0%, #dde8de 38%, #f5ede0 72%, #e8ddd0 100%);min-height:360px;display:flex;flex-direction:column;justify-content:end;isolation:isolate}
   @media (prefers-color-scheme: dark){.art{background:linear-gradient(180deg, #0e1a14 0%, #16231b 46%, #1d2418 100%)}}
   .art-photo{position:absolute;inset:0;z-index:0}
-  .art-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.04)}
-  .art-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb, var(--paper) 12%, transparent) 0%, color-mix(in srgb, var(--paper) 28%, transparent) 38%, var(--paper) 92%)}
+  .art-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.14) brightness(1.12) contrast(1.02)}
+  .art-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb, var(--paper) 8%, transparent) 0%, color-mix(in srgb, var(--paper) 18%, transparent) 42%, var(--paper) 96%)}
   @media (prefers-color-scheme: dark){.art-photo::after{background:linear-gradient(180deg, rgba(15,20,16,0.18) 0%, rgba(15,20,16,0.45) 48%, #0f1410 94%)}}
   .art svg{display:block;width:100%;height:auto;position:relative;z-index:1}
   .art-caption{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;padding:12px 14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:650;border-top:1px solid var(--line);background:color-mix(in srgb, var(--paper) 78%, transparent);backdrop-filter:blur(6px)}
   .art-caption span:last-child{color:var(--muted-2);font-weight:500;letter-spacing:0.04em;text-transform:none}
 
-  /* sections common — content-visibility for perf */
-  section{padding:56px 0 0; content-visibility:auto; contain-intrinsic-size:0 900px}
+  /* sections common — content-visibility for perf + subtle accent */
+  section{padding:56px 0 0; content-visibility:auto; contain-intrinsic-size:0 900px; position:relative}
+  section::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, #dbeafe 0%, #dcfce7 50%, transparent 85%);opacity:0.7;pointer-events:none}
   #work{contain-intrinsic-size:0 1200px}
   #about{contain-intrinsic-size:0 900px}
   .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;border-top:1px solid var(--line);padding-top:22px}
   @media(min-width:900px){.section-head{padding-top:28px}}
   .kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:750;margin:0 0 6px}
-  .h2{font-family:var(--font-serif);font-size:clamp(26px, 3.6vw, 36px);line-height:1.05;letter-spacing:-0.03em;margin:0;font-weight:400}
+  .h2{font-family:var(--font-serif);font-size:clamp(26px, 3.6vw, 36px);line-height:1.18;letter-spacing:-0.03em;margin:0;font-weight:400}
   .h2 i{font-style:italic;color:var(--moss)}
   .sub{color:var(--muted);font-size:14px;max-width:54ch;margin:8px 0 0;line-height:1.6}
   .link-more{font-size:13px;font-weight:650;letter-spacing:0.06em;text-transform:uppercase;color:var(--moss);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
@@ -436,7 +438,7 @@
   <section id="contact" class="wrap">
     <div class="contact">
       <div>
-        <h3>Let's build something meaningful — together.</h3>
+        <h3>Let's build something meaningful together.</h3>
         <p>I’m energized by teams who care about craft, kindness, and real world impact. If you are creating thoughtful, human centered products and could use a front-end leaning engineer who ships reliable, accessible work — I would love to collaborate.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start">
