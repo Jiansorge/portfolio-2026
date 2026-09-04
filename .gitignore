@@ -11,3 +11,5 @@ assets/demo.gif
 ._*
 Thumbs.db
 ffmpeg2pass-0.log
+screenshot-*.png
+mobile-audit.cjs

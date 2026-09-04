@@ -68,37 +68,50 @@
   .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
 
   /* header */
-  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 84%, transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
-  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
-  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:-0.02em}
+  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 92%, transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:58px;flex-wrap:nowrap}
+  @media(max-width:640px){.nav{flex-wrap:wrap;gap:8px 12px;padding:8px 0;min-height:0}}
+  @media(max-width:380px){.nav{flex-direction:column;align-items:flex-start;gap:6px;padding:6px 0}}
+  @media(max-width:380px){.nav-cta{width:100%;justify-content:flex-end}}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-0.02em;min-width:0;flex:0 0 auto}
   .mark{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none;overflow:hidden}
   .mark svg{width:24px;height:24px;display:block}
-  .brand span{font-size:15px}
-  .brand small{font-weight:500;color:var(--muted);font-size:13px;letter-spacing:0.02em}
-  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
-  nav a{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .brand span{font-size:15px;line-height:1.1;white-space:nowrap}
+  @media(max-width:640px){.brand span{font-size:14px}}
+  .brand small{font-weight:500;color:var(--muted);font-size:12px;letter-spacing:0.02em;white-space:nowrap}
+  @media(max-width:640px){.brand small{display:none}}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  @media(max-width:640px){nav ul{gap:12px}}
+  nav a{font-size:12px;letter-spacing:0.07em;text-transform:uppercase;color:var(--muted);font-weight:650;white-space:nowrap}
+  @media(min-width:900px){nav a{font-size:13px;letter-spacing:0.08em}}
   nav a:hover{color:var(--ink)}
-  .nav-cta{display:flex;gap:10px;align-items:center}
-  .icon-btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--muted)}
+  .nav-cta{display:flex;gap:10px;align-items:center;flex:0 0 auto}
+  @media(max-width:640px){.nav-cta{gap:8px}}
+  .icon-btn{width:34px;height:34px;display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--muted);flex:none}
+  @media(min-width:900px){.icon-btn{width:36px;height:36px}}
   .icon-btn:hover{color:var(--ink);border-color:var(--line-2)}
   .icon-btn svg{width:16px;height:16px;display:block}
 
   /* hero · generous breathing room, works at narrow widths — flowing */
-  .hero{padding:32px 0 32px;position:relative;overflow:hidden}
-  @media(min-width:600px){.hero{padding:48px 0 40px}}
-  @media(min-width:900px){.hero{padding:72px 0 56px}}
+  .hero{padding:28px 18px 28px;position:relative;overflow:hidden}
+  @media(min-width:375px){.hero{padding:32px 20px 32px}}
+  @media(min-width:600px){.hero{padding:48px 24px 40px}}
+  @media(min-width:900px){.hero{padding:72px 32px 56px}}
   .hero::before{content:"";position:absolute;left:-8%;top:6%;width:56%;height:68%;background:radial-gradient(ellipse at 30% 30%, #d6e8d5 0%, #eaf1ff 45%, transparent 70%);border-radius:42% 58% 48% 52% / 48% 42% 62% 52%;filter:blur(22px);opacity:0.45;z-index:-1;pointer-events:none}
   .hero::after{content:"";position:absolute;right:-10%;top:18%;width:44%;height:48%;background:radial-gradient(ellipse at 50% 50%, #fff2b8 0%, #fff6d6 35%, transparent 70%);border-radius:50% 50% 38% 62% / 62% 38% 50% 50%;filter:blur(20px);opacity:0.38;z-index:-1;pointer-events:none}
-  .hero-grid{display:grid;gap:28px;position:relative}
+  .hero-grid{display:grid;gap:24px;position:relative}
   @media(min-width:600px){.hero-grid{gap:32px}}
   @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr 0.85fr;align-items:center;gap:48px}}
   .hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden;opacity:0.14;pointer-events:none;border-bottom:1px solid var(--line)}
   .hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.02)}
-  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:18px 18px 20px;background:color-mix(in srgb, var(--paper) 92%, transparent);border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 24px rgba(30,58,47,0.05)}
+  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:20px 18px 22px;background:color-mix(in srgb, var(--paper) 96%, transparent);border:1px solid var(--line);border-radius:18px;box-shadow:0 6px 24px rgba(30,58,47,0.05);max-width:100%}
   @media(min-width:600px){.hero-copy{padding:14px 10px 14px 0;gap:18px;background:transparent;border:0;border-radius:0;box-shadow:none}}
   @media(min-width:900px){.hero-copy{padding:16px 12px 16px 0;gap:20px}}
-  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);font-weight:700;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:var(--paper);max-width:100%;line-height:1.45;flex-wrap:wrap}
-  .eyebrow i{width:6px;height:6px;border-radius:999px;background:#3aa876;flex:none;display:inline-block;box-shadow:0 0 0 4px color-mix(in srgb, #3aa876 18%, transparent)}
+  .eyebrow{display:flex;align-items:flex-start;gap:10px;font-size:10.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:700;border:1px solid var(--line);padding:10px 14px;border-radius:999px;background:var(--paper);max-width:100%;line-height:1.5}
+  @media(min-width:400px){.eyebrow{font-size:11px;letter-spacing:0.09em}}
+  @media(min-width:600px){.eyebrow{font-size:11px;letter-spacing:0.1em}}
+  .eyebrow i{width:7px;height:7px;border-radius:999px;background:#2e9e6b;flex:none;display:block;margin-top:5px;box-shadow:0 0 0 4px color-mix(in srgb, #2e9e6b 18%, transparent)}
+  .eyebrow span{flex:1;min-width:0;text-wrap:balance}
   .nowrap{white-space:nowrap}
   h1{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.04em;line-height:0.92;margin:0;padding:4px 0 2px;font-size:clamp(36px, 6vw, 64px);color:var(--ink)}
   h1 em{font-style:italic;font-weight:400;color:var(--moss)}
@@ -265,7 +278,7 @@
     </div>
     <div class="hero-grid">
       <div class="hero-copy">
-        <span class="eyebrow"><i aria-hidden="true"></i> Senior front-end engineer · <span class="nowrap">performance · security · accessibility</span></span>
+        <span class="eyebrow"><i aria-hidden="true"></i><span>Senior front-end engineer · performance · security · accessibility</span></span>
         <h1>Building <em>bold,</em> impactful products that ship <br>with the Earth in mind.</h1>
         <p class="lede">I’m <strong>Jian Sorge</strong>, a software engineer with 5+ years in front end and 7 years prior as an aerospace project engineer. I build <strong>holistic, reliable products</strong> that are fast, secure, accessible, and cost efficient, and feel minimal and human. My recent work is <strong>Joining Palms</strong>, a living 3D Earth where the world prays together, and its real time layer <strong>sync-engine</strong>, a durable edge sync fabric that runs for ~$0. Both are open source and built openly with AI as a collaborator.</p>
         <div class="actions">
