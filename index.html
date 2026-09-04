@@ -300,8 +300,6 @@
         </div>
         <div class="art-caption"><span>Flower cliffs overlooking ocean · Big Sur light</span><span>33KB webp · bright & inspiring</span></div>
       </div>
-        <div class="art-caption"><span>Mountain lake at dawn · natural light</span><span>8KB webp / 44KB jpg</span></div>
-      </div>
     </div>
   </div>
 
@@ -371,11 +369,12 @@
               <text x="471" y="168" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#1e3a2f">COORDINATOR</text>
               <text x="471" y="186" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#7a7a6e">aggregates /stats</text>
               <path d="M396 172 L400 172" stroke="#1e3a2f" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
-              <!-- Stats arrow out -->
-              <path d="M378 220 L420 220 L420 250 L450 250" stroke="#6b8e7e" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <!-- Stats arrow out — single triangle, no marker artifact -->
+              <path d="M378 220 L420 220 L420 250 L442 250" stroke="#6b8e7e" stroke-width="1.4" stroke-dasharray="5 4" fill="none"/>
+              <path d="M442 246 L452 250 L442 254 z" fill="#6b8e7e"/>
               <text x="430" y="268" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#6b8e7e">GET /stats</text>
               <defs>
-                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e3a2f" opacity="0.9"/></marker>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e3a2f" opacity="0.9"/></marker>
               </defs>
             </svg>
           </div>
@@ -436,8 +435,8 @@
   <section id="contact" class="wrap">
     <div class="contact">
       <div>
-        <h3>Quiet conversations welcome.</h3>
-        <p>I’m currently focused on my role and on <em>Joining Palms</em>, but I’m always happy to chat discreetly with teams who value craft, kindness, and real-world impact. If you think a front-end-leaning, privacy-minded engineer could help · reach out.</p>
+        <h3>Let's build something meaningful — together.</h3>
+        <p>I’m energized by teams who care about craft, kindness, and real world impact. If you are creating thoughtful, human centered products and could use a front-end leaning engineer who ships reliable, accessible work — I would love to collaborate.</p>
       </div>
       <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start">
         <a class="btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer">Message on LinkedIn →</a>
