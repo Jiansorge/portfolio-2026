@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jian Sorge · Software Engineer</title>
+<meta name="description" content="Jian Sorge, software engineer. Front-end focused, privacy first, performance obsessed. Builder of Joining Palms (Prayer Earth) and sync-engine.">
+<meta name="author" content="Jian Sorge">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fffdf7">
+<meta name="robots" content="index,follow">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jian Sorge · Software Engineer">
+<meta property="og:description" content="Minimal, fast, privacy-centered work. Joining Palms and sync-engine.">
+<meta property="og:url" content="https://jiansorge.surge.sh">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; font-src 'self'; media-src 'self'">
+<link rel="canonical" href="https://jiansorge.surge.sh">
+<link rel="icon" href="assets/buddha.svg" type="image/svg+xml">
+<link rel="preload" as="image" href="assets/hero-mountains.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/sky-field.jpg" fetchpriority="high">
+<style>
+  :root{
+    --paper:#fffdf7;
+    --paper-2:#fdf6e9;
+    --ink:#121210;
+    --ink-2:#22221e;
+    --muted:#5e5e54;
+    --muted-2:#67675e;
+    --line:#ece4d1;
+    --line-2:#e6ddd0;
+    --moss:#1e3a2f;
+    --moss-2:#244a3a;
+    --sage:#5a7f6e;
+    --sand:#d8c9a8;
+    --clay:#c67a4a;
+    --sky:#eaf1ff;
+    --sky-2:#fff6d6;
+    --radius:20px;
+    --radius-sm:12px;
+    --max:1080px;
+    --font-sans: ui-sans-system, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  }
+  /* force light — natural, single theme for consistent contrast */
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  html,body{margin:0;padding:0}
+  body{
+    background:
+      radial-gradient(1100px 520px at 78% -8%, #e6f0ff 0%, transparent 58%),
+      radial-gradient(900px 520px at -8% 6%, #fff2cc 0%, transparent 62%),
+      radial-gradient(700px 400px at 50% 18%, #eef6e8 0%, transparent 70%),
+      linear-gradient(180deg, #fffdf7 0%, #fffbf0 45%, #fdf6e9 100%);
+    color:var(--ink);
+    font-family:var(--font-sans);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  a{color:inherit;text-decoration:none}
+  a:focus-visible,button:focus-visible{outline:2px solid var(--moss);outline-offset:3px;border-radius:4px}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
+  @media(min-width:600px){.wrap{padding:0 24px}}
+  @media(min-width:900px){.wrap{padding:0 32px}}
+  .skip{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+  .skip:focus{left:16px;top:16px;width:auto;height:auto;padding:8px 12px;background:var(--ink);color:var(--paper);z-index:99;border-radius:8px}
+  .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--paper) 84%, transparent);backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:600;letter-spacing:-0.02em}
+  .mark{width:32px;height:32px;border-radius:9px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;flex:none;overflow:hidden}
+  .mark svg{width:24px;height:24px;display:block}
+  .brand span{font-size:15px}
+  .brand small{font-weight:500;color:var(--muted);font-size:13px;letter-spacing:0.02em}
+  nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+  nav a{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  nav a:hover{color:var(--ink)}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .icon-btn{width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--muted)}
+  .icon-btn:hover{color:var(--ink);border-color:var(--line-2)}
+  .icon-btn svg{width:16px;height:16px;display:block}
+
+  /* hero · generous breathing room, works at narrow widths — flowing */
+  .hero{padding:32px 0 32px;position:relative;overflow:hidden}
+  @media(min-width:600px){.hero{padding:48px 0 40px}}
+  @media(min-width:900px){.hero{padding:72px 0 56px}}
+  .hero::before{content:"";position:absolute;left:-8%;top:6%;width:56%;height:68%;background:radial-gradient(ellipse at 30% 30%, #d6e8d5 0%, #eaf1ff 45%, transparent 70%);border-radius:42% 58% 48% 52% / 48% 42% 62% 52%;filter:blur(22px);opacity:0.45;z-index:-1;pointer-events:none}
+  .hero::after{content:"";position:absolute;right:-10%;top:18%;width:44%;height:48%;background:radial-gradient(ellipse at 50% 50%, #fff2b8 0%, #fff6d6 35%, transparent 70%);border-radius:50% 50% 38% 62% / 62% 38% 50% 50%;filter:blur(20px);opacity:0.38;z-index:-1;pointer-events:none}
+  .hero-grid{display:grid;gap:28px;position:relative}
+  @media(min-width:600px){.hero-grid{gap:32px}}
+  @media(min-width:900px){.hero-grid{grid-template-columns:1.15fr 0.85fr;align-items:center;gap:48px}}
+  .hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden;opacity:0.14;pointer-events:none;border-bottom:1px solid var(--line)}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(1.08) contrast(1.02)}
+  .hero-copy{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding:10px 12px 14px;background:color-mix(in srgb, var(--paper) 86%, transparent);border:1px solid var(--line);border-radius:16px}
+  @media(min-width:600px){.hero-copy{padding:12px 8px 12px 0;gap:18px;background:transparent;border:0;border-radius:0}}
+  @media(min-width:900px){.hero-copy{padding:16px 12px 16px 0;gap:20px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11.5px;letter-spacing:0.11em;text-transform:uppercase;color:var(--muted);font-weight:700;border:1px solid var(--line);padding:8px 12px;border-radius:999px;background:var(--paper);max-width:100%;line-height:1.45;flex-wrap:wrap}
+  .eyebrow i{width:6px;height:6px;border-radius:999px;background:#3aa876;flex:none;display:inline-block;box-shadow:0 0 0 4px color-mix(in srgb, #3aa876 18%, transparent)}
+  .nowrap{white-space:nowrap}
+  h1{font-family:var(--font-serif);font-weight:400;letter-spacing:-0.04em;line-height:0.92;margin:0;padding:4px 0 2px;font-size:clamp(36px, 6vw, 64px);color:var(--ink)}
+  h1 em{font-style:italic;font-weight:400;color:var(--moss)}
+  .lede{font-size:clamp(16px,2.2vw,19px);line-height:1.65;color:var(--ink-2);max-width:56ch;margin:0;padding:4px 0}
+  .lede strong{font-weight:700;color:var(--ink)}
+  .actions{display:flex;flex-wrap:wrap;gap:12px;margin:0;padding-top:4px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:650;letter-spacing:-0.01em;border:1px solid transparent;transition:transform .15s ease, background .15s ease, border-color .15s ease}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--moss);color:#fdfcf8}
+  .btn-primary:hover{background:var(--moss-2)}
+  .btn-ghost{background:var(--paper);border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--line-2)}
+  .meta-row{display:flex;flex-wrap:wrap;gap:14px;margin:0;padding-top:2px;color:var(--muted);font-size:13px;align-items:center}
+  .meta-row span{display:inline-flex;gap:6px;align-items:center}
+  .dot{width:3px;height:3px;border-radius:50%;background:var(--line-2);display:inline-block}
+  /* earth art · lightweight photo + SVG horizon */
+  .art{position:relative;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg, #eef4ef 0%, #dde8de 38%, #f5ede0 72%, #e8ddd0 100%);min-height:360px;display:flex;flex-direction:column;justify-content:end;isolation:isolate}
+  @media (prefers-color-scheme: dark){.art{background:linear-gradient(180deg, #0e1a14 0%, #16231b 46%, #1d2418 100%)}}
+  .art-photo{position:absolute;inset:0;z-index:0}
+  .art-photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.08) contrast(1.04)}
+  .art-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, color-mix(in srgb, var(--paper) 12%, transparent) 0%, color-mix(in srgb, var(--paper) 28%, transparent) 38%, var(--paper) 92%)}
+  @media (prefers-color-scheme: dark){.art-photo::after{background:linear-gradient(180deg, rgba(15,20,16,0.18) 0%, rgba(15,20,16,0.45) 48%, #0f1410 94%)}}
+  .art svg{display:block;width:100%;height:auto;position:relative;z-index:1}
+  .art-caption{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;padding:12px 14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:650;border-top:1px solid var(--line);background:color-mix(in srgb, var(--paper) 78%, transparent);backdrop-filter:blur(6px)}
+  .art-caption span:last-child{color:var(--muted-2);font-weight:500;letter-spacing:0.04em;text-transform:none}
+
+  /* sections common */
+  section{padding:56px 0 0}
+  .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;border-top:1px solid var(--line);padding-top:22px}
+  @media(min-width:900px){.section-head{padding-top:28px}}
+  .kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:750;margin:0 0 6px}
+  .h2{font-family:var(--font-serif);font-size:clamp(26px, 3.6vw, 36px);line-height:1.05;letter-spacing:-0.03em;margin:0;font-weight:400}
+  .h2 i{font-style:italic;color:var(--moss)}
+  .sub{color:var(--muted);font-size:14px;max-width:54ch;margin:8px 0 0;line-height:1.6}
+  .link-more{font-size:13px;font-weight:650;letter-spacing:0.06em;text-transform:uppercase;color:var(--moss);display:inline-flex;gap:6px;align-items:center;white-space:nowrap}
+  .link-more:hover{color:var(--moss-2)}
+
+  /* projects */
+  .grid{display:grid;gap:18px}
+  @media(min-width:780px){.grid{grid-template-columns:1fr 1fr}}
+  .card{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);overflow:hidden;display:flex;flex-direction:column;min-height:100%}
+  .card-media{aspect-ratio:16/9.5;background:var(--paper-2);border-bottom:1px solid var(--line);position:relative;overflow:hidden;display:grid;place-items:center;padding:18px}
+  .card-media.photo{padding:0;background:#fdf6e9;aspect-ratio:16/9.6}
+  .card-media.photo img{width:100%;height:100%;object-fit:cover;display:block}
+  .card-media.photo .arch{width:100%;height:100%;display:grid;place-items:center;padding:14px;background:linear-gradient(180deg,#fffdf7 0%,#f6f0e0 55%,#eaf1ff 100%);border-bottom:1px solid var(--line)}
+  .card-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .ph{width:100%;height:100%;border-radius:12px;border:1px dashed var(--line-2);display:grid;place-items:center;color:var(--muted);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;font-weight:700;background:repeating-linear-gradient( -45deg, transparent 0 10px, color-mix(in srgb, var(--line) 60%, transparent) 10px 11px)}
+  .card-body{padding:20px 20px 18px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{font-size:11px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;padding:5px 8px;border-radius:999px;border:1px solid var(--line);color:var(--muted);background:var(--paper)}
+  .card h3{font-family:var(--font-serif);font-size:22px;line-height:1.15;letter-spacing:-0.02em;margin:0;font-weight:500}
+  .card h3 a:hover{color:var(--moss)}
+  .card p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+  .card ul{margin:0;padding-left:18px;color:var(--ink-2);font-size:13px;line-height:1.6}
+  .card ul li::marker{color:var(--sage)}
+  .card-foot{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:10px;border-top:1px solid var(--line)}
+  .chip{font-size:12px;font-weight:650;padding:8px 12px;border-radius:999px;border:1px solid var(--line);background:var(--paper);color:var(--ink);display:inline-flex;gap:6px;align-items:center}
+  .chip:hover{border-color:var(--line-2);transform:translateY(-1px)}
+  .chip.primary{background:var(--moss);color:#fdfcf8;border-color:var(--moss)}
+
+  /* about */
+  .about{display:grid;gap:22px}
+  @media(min-width:900px){.about{grid-template-columns:1.05fr 0.95fr;gap:32px;align-items:start}}
+  .prose{font-size:15px;line-height:1.75;color:var(--ink-2)}
+  .prose p{margin:0 0 12px}
+  .prose strong{color:var(--ink)}
+  .facts{border:1px solid var(--line);border-radius:var(--radius);background:var(--paper);overflow:hidden}
+  .facts dl{margin:0;display:grid}
+  .facts dt{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:750;color:var(--muted);margin:0}
+  .facts dd{margin:4px 0 0;font-size:14px;color:var(--ink);line-height:1.5}
+  .fact{padding:16px 18px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:120px 1fr;gap:12px}
+  .fact:last-child{border-bottom:0}
+  @media(max-width:520px){.fact{grid-template-columns:1fr}}
+  .principles{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+  @media(min-width:600px){.principles{grid-template-columns:repeat(4,1fr)}}
+  .principle{border:1px solid var(--line);border-radius:14px;padding:14px;background:var(--paper)}
+  .principle b{font-size:12px;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:6px}
+  .principle span{font-size:13px;color:var(--muted);line-height:1.5;display:block}
+
+  /* contact — lighter, flowing, not heavy */
+  .contact{border:1px solid var(--line);border-radius:var(--radius);background:
+      radial-gradient(600px 300px at 85% 0%, #eaf1ff 0%, transparent 60%),
+      radial-gradient(500px 300px at 10% 100%, #fff6d6 0%, transparent 60%),
+      linear-gradient(180deg, #ffffff 0%, #fffdf7 100%);color:var(--ink);padding:24px;display:grid;gap:18px;box-shadow:0 8px 30px rgba(30,58,47,0.06)}
+  @media(min-width:800px){.contact{grid-template-columns:1.2fr 0.8fr;align-items:center;padding:28px 28px}}
+  .contact h3{font-family:var(--font-serif);font-size:28px;line-height:1.1;letter-spacing:-0.02em;margin:0;font-weight:400;color:var(--ink)}
+  .contact p{margin:8px 0 0;color:var(--muted);font-size:14px;line-height:1.65}
+  .contact .btn{background:var(--moss);color:#fffdf7}
+  .contact .btn:hover{background:var(--moss-2)}
+  .contact .btn--ghost{background:#fff;border:1px solid var(--line);color:var(--moss)}
+
+  footer{padding:28px 0 40px;color:var(--muted);font-size:12px;line-height:1.6}
+  footer .foot{border-top:1px solid var(--line);padding-top:18px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+  .mono{font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size:11px; letter-spacing:0.02em}
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none !important}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Jian Sorge","url":"https://jiansorge.surge.sh","sameAs":["https://github.com/jiansorge","https://linkedin.com/in/jiansorge"],"jobTitle":"Software Engineer","knowsAbout":["JavaScript","TypeScript","React","Preact","Cloudflare Workers","Durable Objects","Performance","Accessibility"]}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- honeypot: bots follow this, humans never see it -->
+<a class="hp" href="/trap" tabindex="-1" aria-hidden="true" rel="nofollow">do not follow</a>
+<span class="hp" aria-hidden="true">contact: jian at jiansorge dot surge dot sh</span>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#" aria-label="Jian Sorge home">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Buddha icon">
+          <defs>
+            <clipPath id="buddhaClip"><path d="M12 1.8 L12.6 3.6 L13.3 5.4 C13.8 6.3 14.8 7.4 15.6 8.6 L17 11.2 L16.6 13.2 L15.8 14.6 L15 15.8 L16.1 17.6 L17 19.4 L16.2 21 L12 22 L7.8 21 L7 19.4 L8 17.6 L9 15.8 L8.2 14.6 L7.4 13.2 L7 11.2 C7.8 9.6 9.2 7.4 10.2 6.2 L11 5.4 L11.4 3.6 Z M11.2 7.8 C11.6 8.4 12.4 8.4 12.8 7.8 L13 7.2 L11 7.2 Z"/></clipPath>
+          </defs>
+          <rect width="24" height="24" rx="4" fill="#fff"/>
+          <g clip-path="url(#buddhaClip)">
+            <rect y="0" width="24" height="1.8" fill="#ff595e"/>
+            <rect y="1.8" width="24" height="1.4" fill="#ffca3a"/>
+            <rect y="3.2" width="24" height="1.4" fill="#8ac926"/>
+            <rect y="4.6" width="24" height="1.3" fill="#1982c4"/>
+            <rect y="5.9" width="24" height="1.3" fill="#6a4c93"/>
+            <rect y="7.2" width="24" height="1.3" fill="#ff595e"/>
+            <rect y="8.5" width="24" height="1.3" fill="#ffca3a"/>
+            <rect y="9.8" width="24" height="1.3" fill="#8ac926"/>
+            <rect y="11.1" width="24" height="1.3" fill="#1982c4"/>
+            <rect y="12.4" width="24" height="1.3" fill="#6a4c93"/>
+            <rect y="13.7" width="24" height="1.3" fill="#ff924c"/>
+            <rect y="15" width="24" height="1.3" fill="#ffca3a"/>
+            <rect y="16.3" width="24" height="1.3" fill="#8ac926"/>
+            <rect y="17.6" width="24" height="1.3" fill="#1982c4"/>
+            <rect y="18.9" width="24" height="1.2" fill="#6a4c93"/>
+            <rect y="20.1" width="24" height="1.3" fill="#ff595e"/>
+            <rect y="21.4" width="24" height="1.6" fill="#ffca3a" opacity="0.95"/>
+          </g>
+          <path d="M12 1.8 L12.6 3.6 L13.3 5.4 C13.8 6.3 14.8 7.4 15.6 8.6 L17 11.2 L16.6 13.2 L15.8 14.6 L15 15.8 L16.1 17.6 L17 19.4 L16.2 21 L12 22 L7.8 21 L7 19.4 L8 17.6 L9 15.8 L8.2 14.6 L7.4 13.2 L7 11.2 C7.8 9.6 9.2 7.4 10.2 6.2 L11 5.4 L11.4 3.6 Z" fill="none" stroke="#1a1a17" stroke-opacity="0.08" stroke-width="0.3"/>
+        </svg>
+      </span>
+      <span>Jian Sorge <small> Software Engineer</small></span>
+    </a>
+    <div class="nav-cta">
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.47.09.64-.2.64-.45v-1.6c-2.6.57-3.16-1.1-3.16-1.1-.43-1.1-1.06-1.4-1.06-1.4-.87-.6.07-.6.07-.6 1 .07 1.5 1 1.5 1 .86 1.48 2.25 1.05 2.8.8.08-.6.33-1.05.6-1.3-2.1-.24-4.3-1.05-4.3-4.7 0-1.05.38-1.9 1-2.57-.1-.24-.44-1.2.1-2.5 0 0 .82-.26 2.7 1 .78-.22 1.6-.33 2.43-.33.82 0 1.65.11 2.43.33 1.88-1.26 2.7-1 2.7-1 .54 1.3.2 2.26.1 2.5.62.67 1 1.52 1 2.57 0 3.66-2.22 4.45-4.33 4.69.34.3.65.9.65 1.8v2.67c0 .25.17.55.64.45A9.5 9.5 0 0 0 12 2.5Z"/></svg>
+      </a>
+      <a class="icon-btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.6c0-1.34-.48-2.26-1.67-2.26-1 0-1.6.67-1.86 1.32-.1.23-.12.55-.12.88v5.66H9.68s.05-9.19 0-10.14h3.56v1.44c.48-.73 1.33-1.77 3.23-1.77 2.36 0 4 1.54 4 4.85v5.62ZM5.34 7.43a2 2 0 1 1 0-3.98 2 2 0 0 1 0 3.98ZM7.12 20.45H3.56V10.3h3.56Z"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <div class="wrap hero">
+    <div class="hero-bg" aria-hidden="true"><img src="assets/sky-field.jpg" alt="" width="1200" height="600" decoding="async" loading="lazy"></div>
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow"><i aria-hidden="true"></i> Software engineer · front end · privacy first · <span class="nowrap">performance minded</span></span>
+        <h1>Building <em>quiet,</em> useful software <br>with the Earth in mind.</h1>
+        <p class="lede">I’m <strong>Jian Sorge</strong>, a software engineer with 5+ years in front end and 7 years prior as an aerospace project engineer. I build <strong>holistic, ethical products</strong> that are fast, secure, private, and accessible, and feel minimal and human. My recent work is <strong>Joining Palms</strong>, a living 3D Earth where the world prays together, and its real time layer <strong>sync-engine</strong>, a privacy first edge sync fabric. Both are open source and built openly with AI as a collaborator.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">View work →</a>
+          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer">GitHub</a>
+          <a class="btn btn-ghost js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer">LinkedIn</a>
+        </div>
+        <div class="meta-row" aria-label="Highlights">
+          <span>◍ Secure by default</span><span class="dot"></span><span>◍ Accessible</span><span class="dot"></span><span>◍ Private by design</span><span class="dot"></span><span>◍ Performant</span><span class="dot"></span><span>◍ Ethical & inclusive</span>
+        </div>
+      </div>
+      <div class="art" aria-hidden="true">
+        <div class="art-photo"><img src="assets/hero-mountains.jpg" alt="Misty mountain lake at dawn, natural earth beauty" width="800" height="533" decoding="async" fetchpriority="high"></div>
+        <div class="art-caption"><span>Mountain lake at dawn · natural light</span><span>44KB · lightweight</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section id="work" class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">Selected work</p>
+        <h2 class="h2">Two builds · <i>innovative, ethical, and shipping.</i></h2>
+        <p class="sub">One living product and the infrastructure it runs on. Both are open source, privacy first, and crafted holistically: performance, security, accessibility, and ethics considered from day one. AI accelerated, human curated.</p>
+      </div>
+      <a class="link-more" href="https://github.com/jiansorge?tab=repositories" target="_blank" rel="noopener noreferrer">All repos ↗</a>
+    </div>
+
+    <div class="grid">
+      <!-- Joining Palms -->
+      <article class="card">
+        <div class="card-media photo">
+          <video autoplay loop muted playsinline poster="assets/screenshot.jpg" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block" onerror="this.style.display='none'">
+            <source src="assets/demo.mp4" type="video/mp4">
+            <source src="assets/demo.webm" type="video/webm">
+          </video>
+          <img src="assets/screenshot.jpg" alt="Joining Palms app home screen, sacred words of the world, 15 traditions" width="1280" height="800" loading="lazy" decoding="async" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover" onerror="this.style.display='none';document.getElementById('ph-jp').style.display='grid'">
+          <div id="ph-jp" class="ph" style="display:none;position:absolute;inset:18px" aria-label="Preview of Joining Palms">◍ Earth that glows as the world prays · WebGL + PWA<br><span style="text-transform:none;letter-spacing:0;font-weight:500;font-size:11px;opacity:.8">Screenshot and demo loaded from assets/screenshot.jpg + demo.mp4</span></div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag">Flagship</span><span class="tag">PWA</span><span class="tag">Live</span></div>
+          <h3><a href="https://joining-palms.app" target="_blank" rel="noopener noreferrer">Joining Palms <span aria-hidden="true">↗</span></a></h3>
+          <p><em style="color:var(--muted)">formerly Prayer Earth</em> · pray with the whole world on a live 3D Earth that glows as people pray. Revolutionary in its simplicity: one shared space for every tradition, no accounts, no personal data, only a coarse 1° cell ever shared.</p>
+          <ul>
+            <li><strong>Holistic optimization:</strong> offline-ready PWA, Vite + code splitting, service worker caching, 60fps Three.js Earth with shader aura; Lighthouse minded, <150KB initial</li>
+            <li><strong>Secure and accessible:</strong> strict CSP without unsafe inline, XSS safe by construction, raw IPs never logged; semantic HTML, keyboard and screen reader support, high contrast, 12 languages + RTL</li>
+            <li><strong>Ethical and inclusive by design:</strong> 145 prayers across 15 traditions, all public domain or original, wholesome, never shame or sin focused, respectful of Indigenous and living traditions</li>
+          </ul>
+          <div class="card-foot">
+            <a class="chip primary" href="https://joining-palms.app" target="_blank" rel="noopener noreferrer">Live · joining-palms.app</a>
+            <a class="chip" href="https://github.com/Jiansorge/prayer-earth" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <span class="chip" aria-label="Stack">React 18 · Vite · Three.js · Zustand</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- sync-engine -->
+      <article class="card">
+        <div class="card-media photo">
+          <div class="arch" aria-label="sync-engine architecture">
+            <svg viewBox="0 0 560 300" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="sync-engine architecture diagram">
+              <rect width="560" height="300" rx="14" fill="transparent"/>
+              <!-- Browser -->
+              <rect x="18" y="36" width="148" height="72" rx="12" fill="#fff" stroke="#1e3a2f" stroke-opacity="0.14"/>
+              <text x="92" y="58" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#1e3a2f">BROWSER</text>
+              <text x="92" y="74" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="11" fill="#2e2e28">Prayer Earth</text>
+              <text x="92" y="88" text-anchor="middle" font-family="ui-monospace, monospace" font-size="9" fill="#7a7a6e">engine.js + protocol.js</text>
+              <!-- Arrow to Worker -->
+              <path d="M166 72 L208 72" stroke="#1e3a2f" stroke-width="1.6" marker-end="url(#arrow)"/>
+              <text x="187" y="64" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#7a7a6e">WS</text>
+              <!-- Worker -->
+              <rect x="208" y="22" width="170" height="98" rx="12" fill="#1e3a2f"/>
+              <text x="293" y="46" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#fefcf6">WORKER</text>
+              <text x="293" y="62" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="10.5" fill="#d8e6dc">Cloudflare Worker</text>
+              <text x="293" y="76" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#a8c8b8">origin check · rate limit</text>
+              <text x="293" y="90" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#a8c8b8">WS upgrade · sharding</text>
+              <!-- Down to SyncRoom -->
+              <path d="M293 120 L293 146" stroke="#1e3a2f" stroke-width="1.6" marker-end="url(#arrow)"/>
+              <!-- SyncRoom DO -->
+              <rect x="190" y="146" width="206" height="88" rx="12" fill="#fff" stroke="#1e3a2f" stroke-opacity="0.14"/>
+              <text x="293" y="168" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="11" font-weight="700" letter-spacing="0.06em" fill="#1e3a2f">SyncRoom DO</text>
+              <text x="293" y="184" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="10" fill="#2e2e28">SQLite · hibernating WS</text>
+              <text x="293" y="198" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#7a7a6e">state / feed / totals</text>
+              <text x="293" y="212" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#7a7a6e">debounced · coalesced</text>
+              <!-- Coordinator -->
+              <rect x="400" y="158" width="142" height="64" rx="12" fill="#fdf6e9" stroke="#d8c9a8" />
+              <text x="471" y="180" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="10" font-weight="700" letter-spacing="0.06em" fill="#1e3a2f">COORDINATOR</text>
+              <text x="471" y="196" text-anchor="middle" font-family="ui-sans-system, sans-serif" font-size="9.5" fill="#2e2e28">aggregates /stats</text>
+              <text x="471" y="210" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8.5" fill="#7a7a6e">shard-0 · N</text>
+              <path d="M396 182 L400 182" stroke="#1e3a2f" stroke-width="1.3" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+              <!-- Stats arrow out -->
+              <path d="M378 220 L420 220 L420 250 L450 250" stroke="#6b8e7e" stroke-width="1.4" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+              <text x="430" y="268" text-anchor="middle" font-family="ui-monospace, monospace" font-size="8" fill="#6b8e7e">GET /stats</text>
+              <defs>
+                <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#1e3a2f" opacity="0.9"/></marker>
+              </defs>
+            </svg>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="tags"><span class="tag">Infrastructure</span><span class="tag">Open Source</span><span class="tag">AGPL-3.0</span></div>
+          <h3><a href="https://github.com/Jiansorge/sync-engine" target="_blank" rel="noopener noreferrer">sync-engine <span aria-hidden="true">↗</span></a></h3>
+          <p>The real time layer behind Joining Palms. An app agnostic presence, broadcast, and durable anonymous totals engine on <strong>Cloudflare Workers + Durable Objects</strong> · innovative edge architecture built to cost ~$0 per month, survive redeploys, and scale via sharding.</p>
+          <ul>
+            <li><strong>Performant and durable:</strong> WebSocket presence, live feed capped at 40 and coalesced, SQLite backed totals, debounced writes, sharding via <code class="mono">?cell=</code> + Coordinator aggregation for global totals</li>
+            <li><strong>Secure and private by design:</strong> origin allow list, per connection rate budget, SHA-256 hashed upgrade throttle, no outbound calls from WS input, 64KB message cap and strict field caps, raw IPs never stored</li>
+            <li><strong>Tested and portable:</strong> 53 Vitest tests including restart survival and protocol drift test that keeps the two <code class="mono">protocol.js</code> copies byte identical; app only depends on a tiny <code class="mono">engine.js</code> interface</li>
+          </ul>
+          <div class="card-foot">
+            <a class="chip" href="https://github.com/Jiansorge/sync-engine" target="_blank" rel="noopener noreferrer">GitHub · sync-engine</a>
+            <a class="chip" href="https://github.com/Jiansorge/prayer-earth/blob/main/docs/PERFORMANCE.md" target="_blank" rel="noopener noreferrer">Performance notes</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="about" class="wrap">
+    <div class="section-head">
+      <div>
+        <p class="kicker">About</p>
+        <h2 class="h2">Holistic by nature.<br><i>Innovative, ethical, and quietly useful.</i></h2>
+      </div>
+    </div>
+
+    <div class="about">
+      <div class="prose">
+        <p>After 7 years in aerospace as a project engineer, I moved into product management where I learned how good engineering teams actually work, then earned certificates in web development and went full time as a front end engineer in 2018. At Bionic I am the sole front end owner of a four app enterprise platform, focused on real time systems, performance, and shipping the orgs first automated testing and CI.</p>
+        <p>My approach is holistic. I think in systems: <strong>performance, security, accessibility, privacy, and ethics</strong> together from day one, not as afterthoughts. I like revolutionary ideas delivered reverently: a single shared Earth for every tradition, a ~$0 edge sync fabric that any app can reuse, work that is innovative but kind.</p>
+        <p>These two projects were built with AI as a close collaborator. I prompt, review, test, and keep the bar for privacy, security, and performance uncomfortably high. The ideas, curation, and care are mine; the speed is ours.</p>
+        <div class="principles" aria-label="Principles">
+          <div class="principle"><b>Minimal</b><span>Less UI. More breathing room. Every pixel earns its keep.</span></div>
+          <div class="principle"><b>Beautiful</b><span>Earth tones, generous type, and horizons that calm.</span></div>
+          <div class="principle"><b>Fast</b><span>Static when possible. No trackers. No bloat. Performance budgets and offline first.</span></div>
+          <div class="principle"><b>Secure</b><span>Strict CSP, XSS safe, rate limits, origin checks, and privacy in the wire format.</span></div>
+          <div class="principle"><b>Accessible</b><span>Semantic HTML, keyboard, screen reader, color contrast, 12 languages and RTL.</span></div>
+          <div class="principle"><b>Private</b><span>No accounts, no cookies, no personal data. Coarse cells only, IPs never stored.</span></div>
+          <div class="principle"><b>Ethical</b><span>Public domain or original, wholesome, never shame based, respectful of living traditions.</span></div>
+          <div class="principle"><b>Innovative</b><span>Edge native, durable, and quietly revolutionary. Reusable by any community.</span></div>
+        </div>
+      </div>
+
+      <div class="facts" aria-label="At a glance">
+        <div class="fact"><dt>Experience</dt><dd><strong>5+ years</strong> front end in production. Sole front end owner of a four app enterprise platform at Bionic, 7 years prior as aerospace project engineer, product mindset throughout.</dd></div>
+        <div class="fact"><dt>Focus</dt><dd>Holistic product craft: real time collaboration, PWA and edge, performance, security, accessibility, design systems. Strongest at diagnosing state and concurrency defects in large legacy codebases.</dd></div>
+        <div class="fact"><dt>Tooling</dt><dd>JS/TS · React · Preact · Vite · Three.js · Zustand · Tailwind · Cloudflare Workers and Durable Objects · Vitest · build tooling and app security</dd></div>
+        <div class="fact"><dt>Strengths</dt><dd>46% build time reduction, first automated testing and CI in org, clear communication, careful review, shipping small and iterating, caring for privacy and time.</dd></div>
+        <div class="fact"><dt>Work style</dt><dd>Calm, reliable, AI augmented. I document, test, and make handoffs easy for the next person. Ethics first, innovation with care.</dd></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="wrap">
+    <div class="contact">
+      <div>
+        <h3>Quiet conversations welcome.</h3>
+        <p>I’m currently focused on my role and on <em>Joining Palms</em>, but I’m always happy to chat discreetly with teams who value craft, kindness, and real-world impact. If you think a front-end-leaning, privacy-minded engineer could help · reach out.</p>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:flex-start">
+        <a class="btn js-link" data-enc="aHR0cHM6Ly9saW5rZWRpbi5jb20vaW4vamlhbnNvcmdl" href="#" rel="noopener noreferrer">Message on LinkedIn →</a>
+        <a class="btn btn--ghost js-link" data-enc="aHR0cHM6Ly9naXRodWIuY29tL2ppYW5zb3JnZQ==" href="#" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        © 2026 Jian Sorge · No cookies · No trackers · No analytics · Just HTML + CSS.<br>
+        <span class="mono">Built to be 100/100/100/100 · Privacy centered · Secure headers · System fonts · Bot honeypot and link obfuscation active</span>
+      </div>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="https://github.com/jiansorge" target="_blank" rel="noopener noreferrer">github.com/jiansorge</a>
+        <a href="https://linkedin.com/in/jiansorge" target="_blank" rel="noopener noreferrer">linkedin.com/in/jiansorge</a>
+        <a href="https://joining-palms.app" target="_blank" rel="noopener noreferrer">joining-palms.app</a>
+      </div>
+    </div>
+  </footer>
+</main>
+<script>
+// link obfuscation: plain href never appears in static HTML for contact targets
+(function(){
+  function b64(s){ try{ return atob(s); }catch(e){ return s; } }
+  var links = document.querySelectorAll('.js-link[data-enc]');
+  for(var i=0;i<links.length;i++){
+    var a = links[i];
+    var url = b64(a.getAttribute('data-enc'));
+    a.setAttribute('href', url);
+    a.setAttribute('target','_blank');
+    // only activate after first human interaction to dodge simple scrapers
+    // but also set immediately for accessibility after a tick
+    (function(el, u){
+      var done=false;
+      function arm(){ if(done) return; done=true; el.href=u; }
+      setTimeout(arm, 700);
+      ['mousemove','keydown','touchstart','scroll'].forEach(function(ev){
+        window.addEventListener(ev, arm, {once:true, passive:true});
+      });
+      el.addEventListener('click', function(e){
+        if(el.getAttribute('href')==='#'){ e.preventDefault(); el.href=u; window.open(u,'_blank','noopener'); }
+      });
+    })(a, url);
+  }
+  // honeypot: if a bot fetches /trap, ignore. Signal trap visits are bots.
+  if(location.pathname === '/trap'){
+    document.body.innerHTML = '<p>Nothing here.</p>';
+  }
+})();
+</script>
+</body>
+</html>

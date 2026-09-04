@@ -1,0 +1,13 @@
+node_modules/
+package-lock.json
+package.json
+audit-playwright.mjs
+screenshot-audit.png
+# keep optimized assets, ignore large originals
+assets/screenshot.png
+assets/demo.gif
+# OS
+.DS_Store
+._*
+Thumbs.db
+ffmpeg2pass-0.log
