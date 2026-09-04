@@ -17,7 +17,7 @@
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-tHRwOZpV8GP+JDoDZs16Gw09ImnQ44D4hYupmnkqWes='; connect-src 'self'; font-src 'self'; media-src 'self' data:">
 <link rel="canonical" href="https://jiansorge.surge.sh">
 <link rel="icon" href="assets/buddha.svg" type="image/svg+xml">
-<link rel="preload" as="image" href="assets/hero-mountains-600.webp" imagesrcset="assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" imagesizes="(max-width: 900px) 100vw, 460px" type="image/webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/hero-mountains-600.webp" imagesrcset="assets/hero-mountains-400.webp 400w, assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" imagesizes="(max-width: 900px) 100vw, 460px" type="image/webp" fetchpriority="high">
 <style>
   :root{
     --paper:#fffdf7;
@@ -137,8 +137,10 @@
   .art-caption{position:relative;z-index:2;display:flex;justify-content:space-between;gap:12px;padding:12px 14px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);font-weight:650;border-top:1px solid var(--line);background:color-mix(in srgb, var(--paper) 78%, transparent);backdrop-filter:blur(6px)}
   .art-caption span:last-child{color:var(--muted-2);font-weight:500;letter-spacing:0.04em;text-transform:none}
 
-  /* sections common */
-  section{padding:56px 0 0}
+  /* sections common — content-visibility for perf */
+  section{padding:56px 0 0; content-visibility:auto; contain-intrinsic-size:0 900px}
+  #work{contain-intrinsic-size:0 1200px}
+  #about{contain-intrinsic-size:0 900px}
   .section-head{display:flex;align-items:end;justify-content:space-between;gap:16px;margin-bottom:22px;border-top:1px solid var(--line);padding-top:22px}
   @media(min-width:900px){.section-head{padding-top:28px}}
   .kicker{font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);font-weight:750;margin:0 0 6px}
@@ -292,8 +294,8 @@
       <div class="art" aria-hidden="true">
         <div class="art-photo">
           <picture>
-            <source type="image/avif" srcset="assets/hero-mountains-480.avif 480w, assets/hero-mountains-600.avif 600w, assets/hero-mountains-800.avif 800w" sizes="(max-width: 900px) 100vw, 460px">
-            <source type="image/webp" srcset="assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" sizes="(max-width: 900px) 100vw, 460px">
+            <source type="image/avif" srcset="assets/hero-mountains-400.avif 400w, assets/hero-mountains-480.avif 480w, assets/hero-mountains-600.avif 600w, assets/hero-mountains-800.avif 800w" sizes="(max-width: 900px) 100vw, 460px">
+            <source type="image/webp" srcset="assets/hero-mountains-400.webp 400w, assets/hero-mountains-480.webp 480w, assets/hero-mountains-600.webp 600w, assets/hero-mountains-800.webp 800w" sizes="(max-width: 900px) 100vw, 460px">
             <img src="assets/hero-mountains.jpg" alt="Bright flower-covered mountain cliffs overlooking turquoise ocean cove, Big Sur light, natural earth beauty" width="800" height="533" decoding="async" fetchpriority="high" loading="eager">
           </picture>
         </div>
