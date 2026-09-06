@@ -74,7 +74,7 @@ No em dashes in this repo. Use commas, periods, or "and" instead for consistency
 
 ## LinkedIn headline
 
-`Senior Front-End Engineer | React · TypeScript | Performance · Security · Accessibility | Cloudflare Workers`
+`Senior Front-End Engineer | React · JavaScript | Performance · Security · Accessibility` — TypeScript and MobX are prior professional experience, can refresh quickly.
 
 ## License
 
