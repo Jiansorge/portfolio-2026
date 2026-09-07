@@ -1,4 +1,4 @@
-# portfolio-2026 — Jian Sorge
+# portfolio-2026 - Jian Sorge
 
 Live: **https://jiansorge.com** (Cloudflare) · fallback **https://jiansorge.surge.sh** · Repo: this one
 
@@ -7,16 +7,16 @@ Minimal, earth-inspired portfolio for a senior front-end engineer. No build, no 
 ## Highlights
 
 - **Single file:** `index.html` 38KB, inline CSS, system fonts, `content-visibility` for below fold
-- **Lightweight media:** `hero-mountains` wildflower meadow 14KB webp (400) / 33KB (800) + `sky-field` 13KB/35KB, `buddha.svg` 1.6KB, `screenshot` 7KB webp 400 / 24KB 800 (from 139KB jpg, 699KB png), `demo` 106KB mp4 / 95KB webm (from 3.3MB gif) — total initial ~140KB on mobile
+- **Lightweight media:** `hero-mountains` wildflower meadow 14KB webp (400) / 33KB (800) + `sky-field` 13KB/35KB, `buddha.svg` 1.6KB, `screenshot` 7KB webp 400 / 24KB 800 (from 139KB jpg, 699KB png), `demo` 106KB mp4 / 95KB webm (from 3.3MB gif) - total initial ~140KB on mobile
 - **Stack:** HTML + CSS only, semantic, accessible, responsive, `srcset`/`sizes` for DPR, `preload` with `fetchpriority=high` for LCP
 - **Targets:** fast (99 performance), secure (strict CSP with hash, honeypot + link obfuscation), private by design, accessible (6.44:1 AA, keyboard, RTL, `track` captions)
 
 ## What it showcases
 
-Two recent, holistic builds — innovative, ethical, and shipping. AI accelerated, human curated, business focused on performance, security, reliability, and cost efficiency:
+Two recent, holistic builds - innovative, ethical, and shipping. AI accelerated, human curated, business focused on performance, security, reliability, and cost efficiency:
 
-- **Joining Palms** (prayer-earth) — `https://joining-palms.app` — live 3D Earth that glows as the world prays. 145 prayers across 15 traditions, 12 languages + RTL, 100 percent public domain or original, wholesome, never shame based. PWA offline, Three.js shaders, 60fps, strict CSP, XSS safe. Holistic optimization, secure and trustworthy.
-- **sync-engine** — `https://github.com/Jiansorge/sync-engine` — edge sync on Cloudflare Workers + Durable Objects, ~$0 per month, durable SQLite totals, sharding via `?cell` + Coordinator, 53 Vitest tests including restart survival. Performant and durable, secure and reliable.
+- **Joining Palms** (prayer-earth) - `https://joining-palms.app` - live 3D Earth that glows as the world prays. 145 prayers across 15 traditions, 12 languages + RTL, 100 percent public domain or original, wholesome, never shame based. PWA offline, Three.js shaders, 60fps, strict CSP, XSS safe. Holistic optimization, secure and trustworthy.
+- **sync-engine** - `https://github.com/Jiansorge/sync-engine` - edge sync on Cloudflare Workers + Durable Objects, ~$0 per month, durable SQLite totals, sharding via `?cell` + Coordinator, 53 Vitest tests including restart survival. Performant and durable, secure and reliable.
 
 See `index.html` for copy that frames bold, impactful shipping with business impact (46 percent build time reduction, first CI in org, state/concurrency diagnostics).
 
@@ -24,17 +24,17 @@ See `index.html` for copy that frames bold, impactful shipping with business imp
 
 ```
 portfolio-2026/
-  index.html — all markup + styles + json-ld, no em dashes
+  index.html - all markup + styles + json-ld, no em dashes
   assets/
-    hero-mountains.jpg — wildflower meadow under blue sky 144KB (fallback), 14KB/33KB webp, 11KB/21KB avif
-    sky-field.jpg — sky wash 75KB, 13KB/35KB webp
-    buddha.svg — rainbow striped Buddha mark 1.6KB
-    screenshot.jpg — Joining Palms home 139KB, 7KB/24KB webp, 6KB/17KB avif responsive
-    demo.mp4 / demo.webm — splash demo 106KB/95KB (from 3.3MB gif)
-  _headers — Cloudflare Pages headers (HSTS, CSP, Cache-Control)
-  robots.txt — Allow: / + Sitemap
+    hero-mountains.jpg - wildflower meadow under blue sky 144KB (fallback), 14KB/33KB webp, 11KB/21KB avif
+    sky-field.jpg - sky wash 75KB, 13KB/35KB webp
+    buddha.svg - rainbow striped Buddha mark 1.6KB
+    screenshot.jpg - Joining Palms home 139KB, 7KB/24KB webp, 6KB/17KB avif responsive
+    demo.mp4 / demo.webm - splash demo 106KB/95KB (from 3.3MB gif)
+  _headers - Cloudflare Pages headers (HSTS, CSP, Cache-Control)
+  robots.txt - Allow: / + Sitemap
   sitemap.xml
-  CNAME — jiansorge.com (surge fallback)
+  CNAME - jiansorge.com (surge fallback)
 ```
 
 Original large sources `assets/screenshot.png` and `assets/demo.gif` are gitignored; optimized jpg/webp/avif/mp4 are committed.
@@ -74,8 +74,8 @@ No em dashes in this repo. Use commas, periods, or "and" instead for consistency
 
 ## LinkedIn headline
 
-`Senior Front-End Engineer | React · JavaScript | Performance · Security · Accessibility` — TypeScript and MobX are prior professional experience, can refresh quickly.
+`Senior Front-End Engineer | React · JavaScript | Performance · Security · Accessibility` - TypeScript and MobX are prior professional experience, can refresh quickly.
 
 ## License
 
-MIT — see `LICENSE`.
+MIT - see `LICENSE`.
