@@ -6,7 +6,7 @@
   Cross-Origin-Embedder-Policy: credentialless
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: interest-cohort=()
-  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'sha256-Lw0Ant2AYlaKaNvmXAakN5mgMvmo9BtrcCkbuFUls7Q=' https://static.cloudflareinsights.com; connect-src 'self' https://static.cloudflareinsights.com; font-src 'self'; media-src 'self' data:
+  Content-Security-Policy: default-src 'self'; base-uri 'none'; form-action 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'sha256-KU9waV8hUC/3jxU2H265u3ukc8doOOPVDYqpxLFSx9s=' 'sha256-Lw0Ant2AYlaKaNvmXAakN5mgMvmo9BtrcCkbuFUls7Q=' 'sha256-tHRwOZpV8GP+JDoDZs16Gw09ImnQ44D4hYupmnkqWes=' 'sha256-WSaw61AhA85KyaqfvN+kq7LUnSk8BuzjHVDkPjiG8+g=' 'sha256-KwpRFaTrTVhjFbWGc9mEZI0ROckg53t23/czxafzmvQ=' https://static.cloudflareinsights.com https://challenges.cloudflare.com; connect-src 'self' https://static.cloudflareinsights.com; font-src 'self'; media-src 'self' data:
   Cache-Control: public, max-age=0, must-revalidate
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
