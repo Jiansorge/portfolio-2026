@@ -1,52 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Avatar — darker tan narrow face, combover, narrow eyes, big smile, thicker chin beard">
-  <title>Narrow eyes, big smile, fitted hair and beard</title>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Friendly tan avatar">
   <rect width="200" height="200" rx="40" fill="#eaf1ff"/>
-  <!-- neck -->
-  <rect x="88" y="142" width="24" height="16" rx="8" fill="#9a6b44"/>
   <!-- shirt -->
-  <path d="M52 200 L52 172 Q52 160 70 156 L88 142 L112 142 L130 156 Q148 160 148 172 L148 200 Z" fill="#2e4a5c"/>
-  <path d="M88 142 L100 162 L112 142 Z" fill="#e8e8e8"/>
-  <!-- face - narrow, darker tan, fitted -->
-  <path d="M 100 54 Q 78 54 68 74 Q 60 92 62 116 Q 66 138 80 152 Q 90 162 100 164 Q 110 162 120 152 Q 134 138 138 116 Q 140 92 132 74 Q 122 54 100 54 Z" fill="#a67c52"/>
-  <!-- hair - combover, fitted on head, not floating, covers crown, sideburns connect -->
-  <path d="M 60 92 Q 62 52 84 34 Q 100 26 124 34 Q 142 48 142 92 Q 140 74 128 58 Q 112 42 96 40 Q 80 42 68 60 Q 60 74 60 92 Z" fill="#0f0a08"/>
-  <!-- combover sweep - hair combed right, covers bald, not floating -->
-  <path d="M 72 38 Q 92 30 114 32 Q 128 36 136 52 Q 122 44 106 42 Q 90 42 76 48 Q 70 44 72 38 Z" fill="#1a120e"/>
-  <path d="M 78 42 Q 96 36 116 38 Q 124 42 130 54 Q 116 46 98 44 Q 82 46 78 50 Z" fill="#251610" opacity="0.95"/>
-  <!-- sideburns - fitted to face, connecting to beard -->
-  <path d="M 60 92 L 66 92 Q 65 104 68 116 L 62 116 Q 58 102 60 92 Z" fill="#0f0a08"/>
-  <path d="M 140 92 L 134 92 Q 135 104 132 116 L 138 116 Q 142 102 140 92 Z" fill="#0f0a08"/>
-  <!-- asian eyes - more narrow, slightly slanted -->
-  <!-- left -->
-  <path d="M 72 103 Q 82 100 92 103 Q 88 106.5 82 106.8 Q 76 106.5 72 103 Z" fill="#1a0f0a"/>
-  <ellipse cx="82" cy="104.2" rx="6.2" ry="2.8" fill="#fff" opacity="0.98"/>
-  <ellipse cx="82" cy="104.2" rx="4.4" ry="2.6" fill="#3d2314"/>
-  <circle cx="82.8" cy="103.6" r="1.5" fill="#0f0702"/>
-  <circle cx="83.6" cy="102.4" r="0.7" fill="#fff" opacity="0.9"/>
-  <path d="M 71 101 Q 82 98.5 93 101" stroke="#0f0a08" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.75"/>
-  <!-- right -->
-  <path d="M 108 103 Q 118 100 128 103 Q 122 106.5 118 106.8 Q 112 106.5 108 103 Z" fill="#1a0f0a"/>
-  <ellipse cx="118" cy="104.2" rx="6.2" ry="2.8" fill="#fff" opacity="0.98"/>
-  <ellipse cx="118" cy="104.2" rx="4.4" ry="2.6" fill="#3d2314"/>
-  <circle cx="118.8" cy="103.6" r="1.5" fill="#0f0702"/>
-  <circle cx="119.6" cy="102.4" r="0.7" fill="#fff" opacity="0.9"/>
-  <path d="M 107 101 Q 118 98.5 129 101" stroke="#0f0a08" stroke-width="0.9" stroke-linecap="round" fill="none" opacity="0.75"/>
-  <!-- eyebrows - bigger, bushier, downward angle away from center -->
-  <path d="M 67 89 Q 78 84 95 88 Q 92 93 82 94.5 Q 70 93 67 89 Z" fill="#0f0a08"/>
-  <path d="M 68 90 Q 76 87 86 88.5 Q 84 91 76 91.5 Q 69 91 68 90 Z" fill="#1a120e" opacity="0.5"/>
-  <path d="M 105 88 Q 122 84 133 89 Q 130 93 118 94.5 Q 108 93 105 88 Z" fill="#0f0a08"/>
-  <path d="M 106 89 Q 116 86 126 88.5 Q 124 91 112 91.5 Q 107 91 106 89 Z" fill="#1a120e" opacity="0.5"/>
-  <!-- nose -->
-  <path d="M 98.5 111 Q 99.2 116 101 118.2 Q 102 118 101 111" stroke="#7a4d2a" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.65"/>
-  <!-- mustache - connected to beard via sideburns -->
-  <path d="M 76 122 Q 90 118 100 122 Q 110 118 124 122 Q 115 127.5 100 128.5 Q 85 127.5 76 122 Z" fill="#0f0a08"/>
-  <!-- beard - fitted on face, thicker on chin, goes to sideburns -->
-  <path d="M 62 116 L 66 116 Q 68 128 74 138 Q 78 146 86 152 Q 92 158 100 160 Q 108 158 114 152 Q 122 146 126 138 Q 132 128 134 116 L 138 116 Q 136 132 130 144 Q 120 158 100 162 Q 80 158 70 144 Q 64 132 62 116 Z" fill="#0f0a08"/>
-  <path d="M 74 134 Q 84 146 100 150 Q 116 146 126 134 Q 122 142 100 148 Q 78 142 74 134 Z" fill="#0f0a08" opacity="0.95"/>
-  <!-- chin thickness -->
-  <path d="M 82 148 Q 92 156 100 158 Q 108 156 118 148" stroke="#1a120e" stroke-width="1.1" stroke-linecap="round" fill="none" opacity="0.4"/>
-  <!-- bigger smile - wider, more open -->
-  <path d="M 84 132 Q 100 144 116 132" stroke="#5a1f1f" stroke-width="1.7" stroke-linecap="round" fill="none"/>
-  <path d="M 86 132.4 Q 100 138 114 132.4 Q 100 142 86 132.4 Z" fill="#fff" opacity="0.96"/>
-  <path d="M 88 132.6 Q 100 135.5 112 132.6" stroke="#e8c4c4" stroke-width="0.8" stroke-linecap="round" fill="none" opacity="0.65"/>
+  <path d="M58 200 L58 172 Q58 158 74 151 L88 140 L112 140 L126 151 Q142 158 142 170 L142 200 Z" fill="#344e5c"/>
+  <!-- face -->
+  <ellipse cx="100" cy="108" rx="42" ry="46" fill="#c99a6b"/>
+  <!-- hair - solid, covers forehead -->
+  <path d="M 52 84 Q 54 30 100 26 Q 146 30 148 84 Z" fill="#1a1208"/>
+  <!-- eyebrows -->
+  <path d="M 72 92 Q 82 89 92 92" stroke="#1a1208" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <path d="M 108 92 Q 118 89 128 92" stroke="#1a1208" stroke-width="1.6" stroke-linecap="round" fill="none" opacity="0.9"/>
+  <!-- eyes -->
+  <ellipse cx="82" cy="103" rx="7" ry="3.8" fill="#fff"/>
+  <ellipse cx="82" cy="103" rx="4.7" ry="2.7" fill="#4a2d12"/>
+  <circle cx="82" cy="102.7" r="1.2" fill="#0f0702"/>
+  <ellipse cx="118" cy="103" rx="7" ry="3.8" fill="#fff"/>
+  <ellipse cx="118" cy="103" rx="4.7" ry="2.7" fill="#4a2d12"/>
+  <circle cx="118" cy="102.7" r="1.2" fill="#0f0702"/>
+  <!-- mustache -->
+  <path d="M 82 121 Q 91 119.5 100 121 Q 109 119.5 118 121 Q 110 123.5 100 124 Q 90 123.5 82 121 Z" fill="#1a1208"/>
+  <!-- beard -->
+  <path d="M 68 112 Q 70 132 80 145 Q 90 156 100 158 Q 110 156 120 145 Q 130 132 132 112 Q 130 128 120 138 Q 100 146 80 138 Q 70 128 68 112 Z" fill="#1a1208" opacity="0.88"/>
+  <!-- smile -->
+  <path d="M 88 131.5 Q 100 137 112 131.5" stroke="#5a1f1f" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <path d="M 89 131.7 Q 100 135 111 131.7 Q 100 137 89 131.7 Z" fill="#fff" opacity="0.95"/>
 </svg>
