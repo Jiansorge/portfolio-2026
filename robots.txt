@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jiansorge.surge.sh/sitemap.xml
+Sitemap: https://jiansorge.com/sitemap.xml
 # updated 2026-05-13 to allow indexing - fixes SEO 69
