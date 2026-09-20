@@ -1,6 +1,5 @@
 # portfolio-2026 - Jian Sorge
 
-Live: **https://jiansorge.com** (Cloudflare) · fallback **https://jiansorge.surge.sh** · Repo: this one
 
 Minimal, earth-inspired portfolio for a senior front-end engineer. No build, no framework, no trackers. Mostly light, natural palette with subtle blue/green flowing accents, built for 99/100 Lighthouse and real world hiring impact.
 
@@ -34,7 +33,6 @@ portfolio-2026/
   _headers - Cloudflare Pages headers (HSTS, CSP, Cache-Control)
   robots.txt - Allow: / + Sitemap
   sitemap.xml
-  CNAME - jiansorge.com (surge fallback)
 ```
 
 Original large sources `assets/screenshot.png` and `assets/demo.gif` are gitignored; optimized jpg/webp/avif/mp4 are committed.
@@ -54,16 +52,12 @@ npx wrangler pages deploy . --project-name=portfolio-2026
 ```
 Headers via `_headers` (HSTS, CSP, Cache-Control for /assets/* immutable). DNS: `jiansorge.com` CNAME to Cloudflare Pages.
 
-**Surge fallback:**
 ```powershell
-npx surge --project ./ --domain jiansorge.surge.sh
-npx surge --project ./ --domain jiansorge.com
 ```
 
 ## Performance / Security / Privacy
 
 - **Performance 99:** 1 HTML + 1 preload LCP, `loading="lazy"`, `decoding="async"`, `content-visibility`, system fonts, no JS framework, responsive `srcset`/`sizes` for DPR, `<150KB` hero initial on mobile, `Cache-Control: immutable` for assets.
-- **Security:** `Content-Security-Policy` with `sha256-Lw0Ant2AYlaKaNvmXAakN5mgMvmo9BtrcCkbuFUls7Q=` + `https://static.cloudflareinsights.com`, `X-Content-Type-Options nosniff`, `X-Frame-Options DENY`, `COOP same-origin`, `Referrer strict-origin`, honeypot `hp` + base64 `js-link` obfuscation, `rel="noopener noreferrer"`. Note: HSTS/COOP/XFO via `_headers` active on Cloudflare, not on Surge.
 - **Privacy:** no cookies, no analytics (Cloudflare beacon allowed via CSP), no email harvesting (email removed, LinkedIn/GitHub obfuscated). App only shares coarse 1 degree cell.
 - **Accessibility:** AA contrast (muted 6.44:1, ink 18:1), semantic `h1→h2→h3`, `lang="en"`, `skip` link, focus-visible, `alt` on images, `dl` for facts, `track` captions for video, identical links share `aria-label`.
 - **SEO:** `robots.txt` Allow, `sitemap.xml`, `canonical`, `og`, `viewport`, `json-ld`.
