@@ -1,0 +1,23 @@
+#!/bin/sh
+# pre-commit: portfolio-2026 is THE Jiansorge-owned Pages site. Only ONE identity may author here.
+# This is the non-negotiable gate - if it's not Jian Sorge, the commit is REFUSED.
+# (git-for-windows runs hooks via sh, never pwsh - do not add a pwsh shebang line here)
+
+REQUIRED_NAME="Jian Sorge"
+REQUIRED_EMAIL="jiansorge@users.noreply.github.com"
+
+GIT_NAME=$(git config user.name)
+GIT_EMAIL=$(git config user.email)
+
+if [ "$GIT_NAME" != "$REQUIRED_NAME" ] || [ "$GIT_EMAIL" != "$REQUIRED_EMAIL" ]; then
+  echo ""
+  echo "  [BLOCKED] this repo may ONLY be committed as: $REQUIRED_NAME <$REQUIRED_EMAIL>"
+  echo "  current identity is                 : $GIT_NAME <$GIT_EMAIL>"
+  echo ""
+  echo "  Fix (repo-local, permanent, beats any global/keyring/gh switch):"
+  echo "    git config user.name  \"$REQUIRED_NAME\""
+  echo "    git config user.email \"$REQUIRED_EMAIL\""
+  echo ""
+  exit 1
+fi
+exit 0
