@@ -9,6 +9,15 @@ REQUIRED_EMAIL="jiansorge@users.noreply.github.com"
 GIT_NAME=$(git config user.name)
 GIT_EMAIL=$(git config user.email)
 
+# content-integrity gate: refuse commits that reintroduce mojibake/stray bytes
+if ! node tests/content-integrity.mjs >/dev/null 2>&1; then
+  echo ""
+  echo "  [BLOCKED] tests/content-integrity.mjs FAILED - fix mojibake/stray bytes first:"
+  echo "    node tests/content-integrity.mjs"
+  echo ""
+  exit 1
+fi
+
 if [ "$GIT_NAME" != "$REQUIRED_NAME" ] || [ "$GIT_EMAIL" != "$REQUIRED_EMAIL" ]; then
   echo ""
   echo "  [BLOCKED] this repo may ONLY be committed as: $REQUIRED_NAME <$REQUIRED_EMAIL>"
