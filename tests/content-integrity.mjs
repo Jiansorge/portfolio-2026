@@ -90,6 +90,44 @@ for (const f of ['robots.txt', 'sitemap.xml', '_headers', '.well-known/security.
   check('file-' + f, ![...b].some((x) => x >= 128), 'has high bytes');
 }
 
+// 11. favicon.ico must exist with a valid ICO header (browsers request it by convention)
+{
+  const p = path.join(root, 'favicon.ico');
+  const ok = fs.existsSync(p) && fs.readFileSync(p).slice(0, 4).equals(Buffer.from([0, 0, 1, 0]));
+  check('favicon-ico', ok, 'missing or bad ICO header');
+}
+
+// 12. every local asset referenced from index.html must exist on disk
+{
+  const refs = new Set();
+  const attrRe = /\b(?:src|href|poster|content|srcset|imagesrcset)\s*=\s*"([^"]*)"/gi;
+  let m;
+  while ((m = attrRe.exec(text))) {
+    const isSet = /srcset/i.test(m[0].split('=')[0]);
+    const parts = isSet ? m[1].split(',') : [m[1]];
+    for (let part of parts) {
+      const u = part.trim().split(/\s+/)[0].split('#')[0].split('?')[0];
+      if (!u || !u.includes('/')) continue;
+      if (u.startsWith('http') || u.startsWith('data:') || u.includes('://')) continue;
+      refs.add(u.replace(/^\.\//, ''));
+    }
+  }
+  const virtual = new Set(['/trap']);
+  const missing = [...refs].filter((u) => !virtual.has(u) && !fs.existsSync(path.join(root, u)));
+  check('asset-refs-exist', missing.length === 0, 'missing: ' + missing.slice(0, 6).join(','));
+}
+
+// 13. obfuscated contact links must decode to valid https URLs
+{
+  const encs = [...text.matchAll(/data-enc="([^"]+)"/g)].map((x) => x[1]);
+  const bad = encs.filter((e) => {
+    try { return !Buffer.from(e, 'base64').toString('latin1').startsWith('https://'); }
+    catch { return true; }
+  });
+  check('data-enc-valid', encs.length > 0 && bad.length === 0,
+    encs.length === 0 ? 'no data-enc links found' : 'bad payloads: ' + bad.length);
+}
+
 if (fails.length) {
   console.log('\n' + fails.length + ' CHECK(S) FAILED: ' + fails.join(', '));
   process.exit(1);
