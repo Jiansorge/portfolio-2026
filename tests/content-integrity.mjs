@@ -176,6 +176,107 @@ for (const f of ['robots.txt', 'sitemap.xml', '_headers', '.well-known/security.
   check('asset-magic', bad.length === 0, 'bad: ' + bad.slice(0, 6).join(','));
 }
 
+// 17. images must carry an alt attribute (empty ok only for decorative)
+{
+  const imgs = [...text.matchAll(/<img\b[^>]*>/gi)].map((x) => x[0]);
+  const bad = imgs.filter((t) => !/\balt\s*=\s*"[^"]*"/.test(t));
+  check('img-alt', imgs.length > 0 && bad.length === 0,
+    imgs.length === 0 ? 'no imgs found' : 'missing alt: ' + bad.length);
+}
+
+// 18. links must have discernible text or an aria-label
+{
+  const bad = [...text.matchAll(/<a\b([^>]*)>([\s\S]*?)<\/a>/gi)]
+    .filter((x) => x[2].replace(/<[^>]*>/g, '').trim() === '' && !/\baria-label\s*=\s*"[^"]+"/.test(x[1]));
+  check('link-text', bad.length === 0, 'bad links: ' + bad.length);
+}
+
+// 19. heading order: exactly one h1 first, never skip a level going down
+{
+  const hs = [...text.matchAll(/<(h[1-6])\b[^>]*>/gi)].map((x) => parseInt(x[1][1], 10));
+  let ok = hs.length > 0 && hs[0] === 1 && hs.filter((h) => h === 1).length === 1;
+  for (let i = 1; ok && i < hs.length; i++) if (hs[i] - hs[i - 1] > 1) ok = false;
+  check('heading-order', ok, 'seq: ' + hs.join(','));
+}
+
+// 20. html lang present
+check('html-lang', /<html\b[^>]*\blang\s*=\s*"[a-z]{2}(-[A-Z]{2})?"/.test(text), 'missing lang');
+
+// 21. meta description present with real content
+{
+  const tag = text.match(/<meta\b[^>]*\bname\s*=\s*"description"[^>]*>/i);
+  const content = tag && (tag[0].match(/\bcontent\s*=\s*"([^"]*)"/i) || [])[1];
+  check('meta-description', !!content && content.length >= 50, 'len=' + (content || '').length);
+}
+
+// 22. canonical and og:url agree
+{
+  const canonTag = text.match(/<link\b[^>]*\brel\s*=\s*"canonical"[^>]*>/i);
+  const ogTag = text.match(/<meta\b[^>]*\bproperty\s*=\s*"og:url"[^>]*>/i);
+  const hrefOf = (m) => m && ((m[0].match(/\b(?:href|content)\s*=\s*"([^"]*)"/i) || [])[1] || '');
+  const norm = (u) => u.replace(/\/$/, '');
+  check('canonical-og-match', !!canonTag && !!ogTag && norm(hrefOf(canonTag)) === norm(hrefOf(ogTag)),
+    'canonical=' + hrefOf(canonTag) + ' og:url=' + hrefOf(ogTag));
+}
+
+// 23. internal #anchors resolve to element ids
+{
+  const hrefs = new Set([...text.matchAll(/\bhref\s*=\s*"#([A-Za-z][\w-]*)"/g)].map((x) => x[1]));
+  const ids = new Set([...text.matchAll(/\bid\s*=\s*"([A-Za-z][\w-]*)"/g)].map((x) => x[1]));
+  const missing = [...hrefs].filter((h) => !ids.has(h));
+  check('anchors-resolve', missing.length === 0, 'dangling: ' + missing.join(','));
+}
+
+// 24. external target=_blank links carry rel=noopener
+{
+  const bad = [...text.matchAll(/<a\b([^>]*)>/gi)].map((x) => x[1]).filter((a) => {
+    const href = (a.match(/\bhref\s*=\s*"([^"]*)"/i) || [])[1] || '';
+    if (!/^https?:\/\//.test(href)) return false;
+    if (!/\btarget\s*=\s*"[^"]*_blank[^"]*"/i.test(a)) return false;
+    return !/\brel\s*=\s*"[^"]*noopener[^"]*"/i.test(a);
+  });
+  check('blank-noopener', bad.length === 0, 'bad: ' + bad.length);
+}
+
+// 25. imgs carry width+height (CLS guard)
+{
+  const bad = [...text.matchAll(/<img\b[^>]*>/gi)].map((x) => x[0])
+    .filter((t) => !(/\bwidth\s*=\s*"\d+"/.test(t) && /\bheight\s*=\s*"\d+"/.test(t)));
+  check('img-dimensions', bad.length === 0, 'missing dims: ' + bad.length);
+}
+
+// 26. HTML size budget (bloat guard)
+check('html-size-budget', buf.length <= 65536, 'bytes=' + buf.length);
+
+// 27. robots.txt uses only known directives; Sitemap absolute https on this domain
+{
+  const t = fs.readFileSync(path.join(root, 'robots.txt'), 'utf8');
+  const known = ['user-agent', 'allow', 'disallow', 'sitemap', 'crawl-delay'];
+  const bad = t.split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#'))
+    .filter((l) => !known.includes(l.split(':')[0].trim().toLowerCase()));
+  const sm = (t.match(/^\s*Sitemap:\s*(\S+)/im) || [])[1] || '';
+  check('robots-directives', bad.length === 0, 'unknown: ' + bad.join(','));
+  check('robots-sitemap-https', sm.startsWith('https://jiansorge.com/'), 'sitemap=' + sm);
+}
+
+// 28. sitemap locs share the canonical domain; lastmod values are valid ISO dates
+{
+  const t = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
+  const locs = [...t.matchAll(/<loc>([^<]*)<\/loc>/g)].map((x) => x[1].trim());
+  const mods = [...t.matchAll(/<lastmod>([^<]*)<\/lastmod>/g)].map((x) => x[1].trim());
+  check('sitemap-locs', locs.length > 0 && locs.every((u) => u.startsWith('https://jiansorge.com/')),
+    'locs=' + locs.join(','));
+  check('sitemap-lastmod', mods.length === locs.length && mods.every((d) => /^\d{4}-\d{2}-\d{2}$/.test(d) && !isNaN(Date.parse(d))),
+    'lastmod=' + mods.join(','));
+}
+
+// 29. CSP meta present with default-src 'self'
+{
+  const tag = text.match(/<meta\b[^>]*\bhttp-equiv\s*=\s*"Content-Security-Policy"[^>]*>/i);
+  const content = tag && ((tag[0].match(/\bcontent\s*=\s*"([^"]*)"/i) || [])[1] || '');
+  check('csp-self', !!content && content.includes("default-src 'self'"), 'csp missing/weak');
+}
+
 if (fails.length) {
   console.log('\n' + fails.length + ' CHECK(S) FAILED: ' + fails.join(', '));
   process.exit(1);
