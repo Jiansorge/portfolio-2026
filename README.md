@@ -58,7 +58,7 @@ Headers via `_headers` (HSTS, CSP, Cache-Control for /assets/* immutable). DNS: 
 ## Performance / Security / Privacy
 
 - **Performance 99:** 1 HTML + 1 preload LCP, `loading="lazy"`, `decoding="async"`, `content-visibility`, system fonts, no JS framework, responsive `srcset`/`sizes` for DPR, `<150KB` hero initial on mobile, `Cache-Control: immutable` for assets.
-- **Privacy:** no cookies, no analytics (Cloudflare beacon allowed via CSP), no email harvesting (email removed, LinkedIn/GitHub obfuscated). App only shares coarse 1 degree cell.
+- **Privacy:** no cookies, no trackers, cookieless analytics only (Cloudflare beacon allowed via CSP), no email harvesting (email removed, LinkedIn/GitHub obfuscated). App only shares coarse 1 degree cell.
 - **Accessibility:** AA contrast (muted 6.44:1, ink 18:1), semantic `h1→h2→h3`, `lang="en"`, `skip` link, focus-visible, `alt` on images, `dl` for facts, `track` captions for video, identical links share `aria-label`.
 - **SEO:** `robots.txt` Allow, `sitemap.xml`, `canonical`, `og`, `viewport`, `json-ld`.
 
