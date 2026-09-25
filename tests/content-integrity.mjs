@@ -4,6 +4,7 @@
 // every non-ASCII char under test is referenced by \u escape, never literally.
 import fs from 'fs';
 import path from 'path';
+import vm from 'vm';
 import { fileURLToPath } from 'url';
 
 const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -126,6 +127,53 @@ for (const f of ['robots.txt', 'sitemap.xml', '_headers', '.well-known/security.
   });
   check('data-enc-valid', encs.length > 0 && bad.length === 0,
     encs.length === 0 ? 'no data-enc links found' : 'bad payloads: ' + bad.length);
+}
+
+// 14. inline scripts must parse (catches truncation corruption in code)
+{
+  const tags = [...text.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/gi)];
+  const codes = tags.filter((x) => !/\bsrc=/.test(x[1]) && !/ld\+json/.test(x[1])).map((x) => x[2]);
+  const jsonlds = tags.filter((x) => /ld\+json/.test(x[1])).map((x) => x[2]);
+  let bad = -1;
+  codes.forEach((code, i) => { try { new vm.Script(code); } catch { bad = i; } });
+  let badJson = -1;
+  jsonlds.forEach((code, i) => { try { JSON.parse(code); } catch { badJson = i; } });
+  check('inline-js-parses', codes.length > 0 && bad < 0,
+    codes.length === 0 ? 'no inline scripts found' : 'script block #' + bad + ' has syntax error');
+  check('jsonld-parses', jsonlds.length > 0 && badJson < 0,
+    jsonlds.length === 0 ? 'no JSON-LD found' : 'JSON-LD block #' + badJson + ' invalid');
+}
+
+// 15. <style> braces must balance (catches truncated CSS)
+{
+  const css = [...text.matchAll(/<style[^>]*>([\s\S]*?)<\/style>/gi)].map((x) => x[1]).join('\n');
+  const open = (css.match(/{/g) || []).length;
+  const close = (css.match(/}/g) || []).length;
+  check('css-braces', open > 0 && open === close, 'braces ' + open + '/' + close);
+}
+
+// 16. referenced binary assets must have valid magic bytes (catches corrupt images/video)
+{
+  const found = new Set([...text.matchAll(/assets\/[A-Za-z0-9_.\-]+/g)].map((x) => x[0]));
+  found.add('favicon.ico');
+  const bad = [];
+  for (const u of found) {
+    const p = path.join(root, u);
+    if (!fs.existsSync(p)) { bad.push(u + '(missing)'); continue; }
+    const b = fs.readFileSync(p);
+    const head = b.slice(0, 12).toString('hex');
+    let ok = false;
+    if (u.endsWith('.jpg') || u.endsWith('.jpeg')) ok = head.startsWith('ffd8ff');
+    else if (u.endsWith('.png')) ok = head.startsWith('89504e47');
+    else if (u.endsWith('.webp')) ok = head.startsWith('52494646') && b.slice(8, 12).toString() === 'WEBP';
+    else if (u.endsWith('.avif') || u.endsWith('.mp4')) ok = b.slice(4, 8).toString() === 'ftyp';
+    else if (u.endsWith('.webm')) ok = head.startsWith('1a45dfa3');
+    else if (u.endsWith('.svg')) ok = b.toString('latin1').includes('<svg');
+    else if (u.endsWith('.ico')) ok = head.startsWith('00000100');
+    else ok = b.length > 0;
+    if (!ok) bad.push(u);
+  }
+  check('asset-magic', bad.length === 0, 'bad: ' + bad.slice(0, 6).join(','));
 }
 
 if (fails.length) {
